@@ -27,6 +27,6 @@ public class BreedEndpoint {
   public Stream<BreedDto> search(BreedSearchDto searchParams) {
     LOG.info("GET " + BASE_PATH);
     LOG.debug("Request Params: {}", searchParams);
-    return service.search(searchParams);
+    return service.allBreeds();
   }
 }

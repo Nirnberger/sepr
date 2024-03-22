@@ -34,6 +34,8 @@ export class HorseCreateEditComponent implements OnInit {
   private heightSet: boolean = false;
   private weightSet: boolean = false;
   private dateOfBirthSet: boolean = false;
+  private errorText: string = '';
+
 
   get height(): number | null {
     return this.heightSet
@@ -83,7 +85,7 @@ export class HorseCreateEditComponent implements OnInit {
       case HorseCreateEditMode.create:
         return 'Create New Horse';
       default:
-        return '?';
+        return 'Editing Horse with id';
     }
   }
 
@@ -91,6 +93,9 @@ export class HorseCreateEditComponent implements OnInit {
     switch (this.mode) {
       case HorseCreateEditMode.create:
         return 'Create';
+      case HorseCreateEditMode.edit:
+        return 'Update';
+      break;
       default:
         return '?';
     }
@@ -119,8 +124,36 @@ export class HorseCreateEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.route.data.subscribe(data => {
-      this.mode = data.mode;
+    this.route.paramMap.subscribe(data => {
+      if(data.has('id')) {
+        this.mode = HorseCreateEditMode.edit;
+        // now we need to load the horse with the provided id
+        let id = Number(data.get('id'));
+        this.service.getById(id)
+        .subscribe({
+          next: data => {
+            this.horse = data;
+            this.heightSet = true;
+            this.weightSet = true;
+            this.dateOfBirthSet = true;
+          },
+          error: error => {
+            console.log("there was an error loading this horese");
+            console.log(error);
+            /*
+               console.error('Error fetching horses', error);
+               this.bannerError = 'Could not fetch horses: ' + error.message;
+               const errorMessage = error.status === 0
+                 ? 'Is the backend up?'
+                 : error.message.message;
+                 this.notification.error(errorMessage, 'Could Not Fetch Horses');
+                 */
+          }
+        });
+        //
+      }else {
+        this.mode = HorseCreateEditMode.create;
+      }
     });
   }
 
@@ -138,29 +171,33 @@ export class HorseCreateEditComponent implements OnInit {
     ? of([])
     :  this.breedService.breedsByName(input, 5);
 
-  public onSubmit(form: NgForm): void {
-    console.log('is form valid?', form.valid, this.horse);
-    if (form.valid) {
-      let observable: Observable<Horse>;
-      switch (this.mode) {
-        case HorseCreateEditMode.create:
-          observable = this.service.create(this.horse);
+    public onSubmit(form: NgForm): void {
+      console.log('is form valid?', form.valid, this.horse);
+      if (form.valid) {
+        let observable: Observable<Horse>;
+        switch (this.mode) {
+          case HorseCreateEditMode.create:
+            observable = this.service.create(this.horse);
           break;
-        default:
-          console.error('Unknown HorseCreateEditMode', this.mode);
+          case HorseCreateEditMode.edit:
+            observable = this.service.update(this.horse);
+          break;
+          default:
+            console.error('Unknown HorseCreateEditMode', this.mode);
           return;
-      }
-      observable.subscribe({
-        next: data => {
-          this.notification.success(`Horse ${this.horse.name} successfully ${this.modeActionFinished}.`);
-          this.router.navigate(['/horses']);
-        },
-        error: error => {
-          console.error('Error creating horse', error);
-          // TODO show an error message to the user. Include and sensibly present the info from the backend!
         }
-      });
+        observable.subscribe({
+          next: data => {
+            this.notification.success(`Horse ${this.horse.name} successfully ${this.modeActionFinished}.`);
+            this.router.navigate(['/horses']);
+          },
+          error: error => {
+            console.error('Error creating horse', error);
+            this.errorText = error.message;
+            // TODO show an error message to the user. Include and sensibly present the info from the backend!
+          }
+        });
+      }
     }
-  }
 
 }

@@ -12,12 +12,7 @@ import java.util.stream.Stream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 @RestController
@@ -65,7 +60,7 @@ public class HorseEndpoint {
     }
   }
 
-  @PutMapping("")
+  @PostMapping("")
   public HorseDetailDto createNewHorse(@RequestBody HorseDetailDto toCreate) throws ValidationException, ConflictException{
     LOG.info("PUT " + BASE_PATH + "/{}", toCreate);
     LOG.debug("Body of request:\n{}", toCreate);

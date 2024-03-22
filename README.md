@@ -14,5 +14,6 @@ Vergessen Sie nicht im Projekt ihren Namen und Matrikelnummer zu ersetzen.
 | Datum | Startzeit | Dauer | Story-ID | Tätigkeit |
 |-------|-----------|-------|----------|-----------|
 |21.03.24|1900|2h|1|implemented creation-functionality in back-end |
+|21.03.24|2300|1h|1|implemented drop down menu for breed selection|
 
 **Gesamtsumme der Zeit**: 2h 

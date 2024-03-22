@@ -45,10 +45,24 @@ export class HorseService {
       params = params.append('limit', searchParams.limit);
     }
     return this.http.get<HorseListDto[]>(baseUri, { params })
-      .pipe(tap(horses => horses.map(h => {
-        h.dateOfBirth = new Date(h.dateOfBirth); // Parse date string
-      })));
+    .pipe(tap(horses => horses.map(h => {
+      h.dateOfBirth = new Date(h.dateOfBirth); // Parse date string
+    })));
   }
+
+  /**
+   * Update an existing horse in the system.
+   *
+   * @param horse the data for the horse that should be updated
+   * @return an Observable for the updated horse
+   */
+  update(horse: Horse): Observable<Horse> {
+    return this.http.put<Horse>(
+      `${baseUri}/${horse.id}`,
+      horse
+    );
+  }
+
 
   /**
    * Create a new horse in the system.

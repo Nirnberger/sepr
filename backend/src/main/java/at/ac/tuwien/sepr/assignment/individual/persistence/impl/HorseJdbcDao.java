@@ -9,9 +9,7 @@ import at.ac.tuwien.sepr.assignment.individual.exception.NotFoundException;
 import at.ac.tuwien.sepr.assignment.individual.persistence.HorseDao;
 import at.ac.tuwien.sepr.assignment.individual.type.Sex;
 import java.lang.invoke.MethodHandles;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Types;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -22,6 +20,8 @@ import org.springframework.dao.DuplicateKeyException;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 @Repository
@@ -83,31 +83,44 @@ public class HorseJdbcDao implements HorseDao {
   }
 
   @Override
-  public Horse createNewHorse(HorseDetailDto horse) throws ConflictException{
+  public Horse createNewHorse(HorseDetailDto horse) throws ConflictException {
     LOG.trace("create({})", horse);
     try {
-      int created = jdbcTemplate.update(SQL_INSERT,
-              horse.name(),
-              horse.sex().toString(),
-              horse.dateOfBirth(),
-              horse.height(),
-              horse.weight(),
-              horse.breed().id());
+      KeyHolder keyHolder = new GeneratedKeyHolder();
+      int created = jdbcTemplate.update(con -> {
+        PreparedStatement ps = con.prepareStatement(SQL_INSERT, Statement.RETURN_GENERATED_KEYS);
+        ps.setString(1, horse.name());
+        ps.setString(2, horse.sex().toString());
+        ps.setDate(3, Date.valueOf(horse.dateOfBirth()));
+        ps.setFloat(4, horse.height());
+        ps.setFloat(5, horse.weight());
+        ps.setLong(6, horse.breed().id());
+        return ps;
+      }, keyHolder);
+
       if (created == 0) {
-        throw new ConflictException("Could not create horse with ID " + horse.id(), new ArrayList<String>());
+        throw new ConflictException("Could not create horse", new ArrayList<String>());
       }
 
-      return new Horse()
+      // Get the generated id from the key holder
+      long generatedId = keyHolder.getKey().longValue();
+
+      // Create the Horse object with the generated id
+      Horse newHorse = new Horse()
+              .setId(generatedId)
               .setName(horse.name())
               .setSex(horse.sex())
               .setDateOfBirth(horse.dateOfBirth())
               .setHeight(horse.height())
               .setWeight(horse.weight())
               .setBreedId(horse.breed().id());
+
+      return newHorse;
     } catch (DuplicateKeyException e) {
-      throw new ConflictException("Horse with ID " + horse.id() + " already exists", new ArrayList<>());
+      throw new ConflictException("Horse already exists", new ArrayList<>());
     }
   }
+
 
   @Override
   public Collection<Horse> search(HorseSearchDto searchParameters) {
