@@ -212,3 +212,123 @@
 2024-03-22T15:34:14.288+01:00 r=ff6f691d25f5 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-3] a.a.t.s.a.individual.config.LogFilter    : <<< GET /horses/-32 status=200 time=3ms
 2024-03-22T17:09:46.452+01:00 r= ip=  WARN 78665 --- [wendys-tournament-management] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=47m7s208ms).
 2024-03-22T18:07:53.669+01:00 r= ip=  WARN 78665 --- [wendys-tournament-management] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=58m7s222ms).
+2024-03-22T18:17:39.075+01:00 r=7038f40ce838 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-5] a.a.t.s.a.individual.config.LogFilter    : >>> GET /horses/-32 UA=Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:123.0) Gecko/20100101 Firefox/123.0
+2024-03-22T18:17:39.091+01:00 r=7038f40ce838 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-5] a.a.t.s.a.individual.rest.HorseEndpoint  : GET /horses/-32
+2024-03-22T18:17:39.112+01:00 r=7038f40ce838 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-5] a.a.t.s.a.individual.config.LogFilter    : <<< GET /horses/-32 status=200 time=31ms
+2024-03-22T18:17:44.641+01:00 r=e843f688837a ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-6] a.a.t.s.a.individual.config.LogFilter    : >>> OPTIONS /horses/-32 UA=Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:123.0) Gecko/20100101 Firefox/123.0
+2024-03-22T18:17:44.647+01:00 r=e843f688837a ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-6] a.a.t.s.a.individual.config.LogFilter    : <<< OPTIONS /horses/-32 status=200 time=5ms
+2024-03-22T18:17:44.654+01:00 r=e7340c597e0d ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-7] a.a.t.s.a.individual.config.LogFilter    : >>> PUT /horses/-32 UA=Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:123.0) Gecko/20100101 Firefox/123.0
+2024-03-22T18:17:44.666+01:00 r=e7340c597e0d ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-7] a.a.t.s.a.individual.rest.HorseEndpoint  : PUT /horses/HorseDetailDto[id=-32, name=Updated Horse Name, sex=MALE, dateOfBirth=2023-01-19, height=15.2, weight=1200.0, breed=BreedDto[id=-19, name=Welsh Cob]]
+2024-03-22T18:17:44.677+01:00 r=e7340c597e0d ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-7] a.a.t.s.a.individual.config.LogFilter    : <<< PUT /horses/-32 status=200 time=22ms
+2024-03-22T18:17:44.701+01:00 r=85566bb8aed4 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-8] a.a.t.s.a.individual.config.LogFilter    : >>> GET /horses UA=Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:123.0) Gecko/20100101 Firefox/123.0
+2024-03-22T18:17:44.706+01:00 r=85566bb8aed4 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-8] a.a.t.s.a.individual.rest.HorseEndpoint  : GET /horses
+2024-03-22T18:17:44.715+01:00 r=85566bb8aed4 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-8] a.a.t.s.a.individual.config.LogFilter    : <<< GET /horses status=200 time=14ms
+2024-03-22T18:17:53.341+01:00 r=b22a07d37ba7 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-9] a.a.t.s.a.individual.config.LogFilter    : >>> GET /horses/-32 UA=Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:123.0) Gecko/20100101 Firefox/123.0
+2024-03-22T18:17:53.343+01:00 r=b22a07d37ba7 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-9] a.a.t.s.a.individual.rest.HorseEndpoint  : GET /horses/-32
+2024-03-22T18:17:53.348+01:00 r=b22a07d37ba7 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-9] a.a.t.s.a.individual.config.LogFilter    : <<< GET /horses/-32 status=200 time=7ms
+2024-03-22T18:31:17.246+01:00 r= ip=  INFO 78665 --- [wendys-tournament-management] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-22T18:31:17.407+01:00 r= ip=  INFO 78665 --- [wendys-tournament-management] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-22T18:35:37.439+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] SeprIndividualAssignmentApplicationTests : Starting SeprIndividualAssignmentApplicationTests using Java 21 with PID 83937 (started by deluxe in /Users/deluxe/uni/ss2024/sepr/projekt/backend)
+2024-03-22T18:35:37.441+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] SeprIndividualAssignmentApplicationTests : The following 1 profile is active: "test"
+2024-03-22T18:35:39.733+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-03-22T18:35:40.035+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn0: url=jdbc:h2:mem:testdb user=SA
+2024-03-22T18:35:40.044+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-03-22T18:35:40.097+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-03-22T18:35:40.340+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] SeprIndividualAssignmentApplicationTests : Started SeprIndividualAssignmentApplicationTests in 3.372 seconds (process running for 4.635)
+2024-03-22T18:35:41.284+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [at.ac.tuwien.sepr.assignment.individual.persistence.BreedDaoTest]: BreedDaoTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-03-22T18:35:41.327+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration at.ac.tuwien.sepr.assignment.individual.SeprIndividualAssignmentApplication for test class at.ac.tuwien.sepr.assignment.individual.persistence.BreedDaoTest
+2024-03-22T18:35:41.417+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.persistence.BreedDaoTest     : Starting BreedDaoTest using Java 21 with PID 83937 (started by deluxe in /Users/deluxe/uni/ss2024/sepr/projekt/backend)
+2024-03-22T18:35:41.418+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.persistence.BreedDaoTest     : The following 2 profiles are active: "test", "datagen"
+2024-03-22T18:35:41.799+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:41.805+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Starting...
+2024-03-22T18:35:41.813+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-2 - Added connection conn10: url=jdbc:h2:mem:testdb user=SA
+2024-03-22T18:35:41.814+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Start completed.
+2024-03-22T18:35:41.847+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:42.009+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-03-22T18:35:42.056+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.persistence.BreedDaoTest     : Started BreedDaoTest in 0.715 seconds (process running for 6.35)
+2024-03-22T18:35:42.089+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:42.116+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:42.193+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Clearing data…
+2024-03-22T18:35:42.210+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished clearing data without error
+2024-03-22T18:35:42.218+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:42.228+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:42.234+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Clearing data…
+2024-03-22T18:35:42.239+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished clearing data without error
+2024-03-22T18:35:42.250+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:42.260+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:42.269+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Clearing data…
+2024-03-22T18:35:42.273+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished clearing data without error
+2024-03-22T18:35:42.280+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:42.285+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:42.286+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Clearing data…
+2024-03-22T18:35:42.288+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished clearing data without error
+2024-03-22T18:35:42.307+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [at.ac.tuwien.sepr.assignment.individual.persistence.HorseDaoTest]: HorseDaoTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-03-22T18:35:42.313+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration at.ac.tuwien.sepr.assignment.individual.SeprIndividualAssignmentApplication for test class at.ac.tuwien.sepr.assignment.individual.persistence.HorseDaoTest
+2024-03-22T18:35:42.325+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:42.334+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:42.402+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Clearing data…
+2024-03-22T18:35:42.411+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished clearing data without error
+2024-03-22T18:35:42.418+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:42.424+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:42.438+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Clearing data…
+2024-03-22T18:35:42.440+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished clearing data without error
+2024-03-22T18:35:42.450+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [at.ac.tuwien.sepr.assignment.individual.service.HorseServiceTest]: HorseServiceTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-03-22T18:35:42.473+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration at.ac.tuwien.sepr.assignment.individual.SeprIndividualAssignmentApplication for test class at.ac.tuwien.sepr.assignment.individual.service.HorseServiceTest
+2024-03-22T18:35:42.488+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:42.497+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:42.511+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Clearing data…
+2024-03-22T18:35:42.519+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished clearing data without error
+2024-03-22T18:35:42.525+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:42.528+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:42.544+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Clearing data…
+2024-03-22T18:35:42.545+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished clearing data without error
+2024-03-22T18:35:42.553+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [at.ac.tuwien.sepr.assignment.individual.rest.HorseEndpointTest]: HorseEndpointTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-03-22T18:35:42.569+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration at.ac.tuwien.sepr.assignment.individual.SeprIndividualAssignmentApplication for test class at.ac.tuwien.sepr.assignment.individual.rest.HorseEndpointTest
+2024-03-22T18:35:42.628+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.rest.HorseEndpointTest       : Starting HorseEndpointTest using Java 21 with PID 83937 (started by deluxe in /Users/deluxe/uni/ss2024/sepr/projekt/backend)
+2024-03-22T18:35:42.628+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.rest.HorseEndpointTest       : The following 2 profiles are active: "test", "datagen"
+2024-03-22T18:35:42.855+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:42.856+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-03-22T18:35:42.862+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection conn20: url=jdbc:h2:mem:testdb user=SA
+2024-03-22T18:35:42.862+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-03-22T18:35:42.873+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:42.964+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
+2024-03-22T18:35:42.994+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.rest.HorseEndpointTest       : Started HorseEndpointTest in 0.419 seconds (process running for 7.289)
+2024-03-22T18:35:43.001+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:43.009+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:43.015+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-03-22T18:35:43.016+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-03-22T18:35:43.016+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-03-22T18:35:43.061+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.individual.rest.HorseEndpoint  : GET /horses
+2024-03-22T18:35:43.148+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Clearing data…
+2024-03-22T18:35:43.153+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished clearing data without error
+2024-03-22T18:35:43.159+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:43.162+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:43.163+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-03-22T18:35:43.163+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-03-22T18:35:43.163+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-03-22T18:35:43.165+01:00 r= ip=  WARN 83937 --- [wendys-tournament-management] [main] o.s.web.servlet.PageNotFound             : No mapping for GET /asdf123
+2024-03-22T18:35:43.167+01:00 r= ip=  WARN 83937 --- [wendys-tournament-management] [main] o.s.web.servlet.PageNotFound             : No endpoint GET /asdf123.
+2024-03-22T18:35:43.168+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Clearing data…
+2024-03-22T18:35:43.170+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished clearing data without error
+2024-03-22T18:35:43.174+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:43.177+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:43.177+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-03-22T18:35:43.177+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-03-22T18:35:43.177+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-03-22T18:35:43.179+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.individual.rest.HorseEndpoint  : GET /horses
+2024-03-22T18:35:43.186+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Clearing data…
+2024-03-22T18:35:43.189+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished clearing data without error
+2024-03-22T18:35:43.192+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Generating data…
+2024-03-22T18:35:43.196+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished generating data without error.
+2024-03-22T18:35:43.196+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2024-03-22T18:35:43.196+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2024-03-22T18:35:43.196+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 0 ms
+2024-03-22T18:35:43.197+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.individual.rest.HorseEndpoint  : GET /horses
+2024-03-22T18:35:43.205+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Clearing data…
+2024-03-22T18:35:43.206+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [main] a.a.t.s.a.i.p.DataGeneratorBean          : Finished clearing data without error
+2024-03-22T18:35:43.225+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-03-22T18:35:43.228+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-03-22T18:35:43.230+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-03-22T18:35:43.231+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-03-22T18:35:43.233+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-03-22T18:35:43.234+01:00 r= ip=  INFO 83937 --- [wendys-tournament-management] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
