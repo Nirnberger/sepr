@@ -49,7 +49,7 @@ public interface HorseDao {
    *
    * @param horse data to insert
    * @return the horse
-   * @throws ConflictException
+   * @throws ConflictException if this horse already exists
    */
   Horse createNewHorse(HorseDetailDto horse) throws ConflictException;
 }
