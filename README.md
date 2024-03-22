@@ -15,5 +15,6 @@ Vergessen Sie nicht im Projekt ihren Namen und Matrikelnummer zu ersetzen.
 |-------|-----------|-------|----------|-----------|
 |21.03.24|1900|2h|1|implemented creation-functionality in back-end |
 |21.03.24|2300|1h|1|implemented drop down menu for breed selection|
+|22.03.24|1400|2h|2|added updating horses screen|
 
-**Gesamtsumme der Zeit**: 2h 
+**Gesamtsumme der Zeit**: 4h 
