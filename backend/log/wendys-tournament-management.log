@@ -210,3 +210,5 @@
 2024-03-22T15:34:14.283+01:00 r=ff6f691d25f5 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-3] a.a.t.s.a.individual.config.LogFilter    : >>> GET /horses/-32 UA=Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:123.0) Gecko/20100101 Firefox/123.0
 2024-03-22T15:34:14.285+01:00 r=ff6f691d25f5 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-3] a.a.t.s.a.individual.rest.HorseEndpoint  : GET /horses/-32
 2024-03-22T15:34:14.288+01:00 r=ff6f691d25f5 ip=127.0.0.1  INFO 78665 --- [wendys-tournament-management] [http-nio-8080-exec-3] a.a.t.s.a.individual.config.LogFilter    : <<< GET /horses/-32 status=200 time=3ms
+2024-03-22T17:09:46.452+01:00 r= ip=  WARN 78665 --- [wendys-tournament-management] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=47m7s208ms).
+2024-03-22T18:07:53.669+01:00 r= ip=  WARN 78665 --- [wendys-tournament-management] [HikariPool-1 housekeeper] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=58m7s222ms).

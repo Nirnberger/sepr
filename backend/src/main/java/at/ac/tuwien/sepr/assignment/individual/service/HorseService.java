@@ -47,6 +47,7 @@ public interface HorseService {
 
   /**
    * Creates a new Horse if the provided Input is a valid horse
+   *
    * @param horse data for the new horse to be instantiated
    */
   HorseDetailDto createNewHorse(HorseDetailDto horse) throws ValidationException, ConflictException;
