@@ -5,6 +5,7 @@ import at.ac.tuwien.sepr.assignment.individual.dto.HorseSearchDto;
 import at.ac.tuwien.sepr.assignment.individual.entity.Horse;
 import at.ac.tuwien.sepr.assignment.individual.exception.ConflictException;
 import at.ac.tuwien.sepr.assignment.individual.exception.NotFoundException;
+
 import java.util.Collection;
 
 /**
@@ -26,8 +27,8 @@ public interface HorseDao {
 
   /**
    * Update the horse with the ID given in {@code horse}
-   *  with the data given in {@code horse}
-   *  in the persistent data store.
+   * with the data given in {@code horse}
+   * in the persistent data store.
    *
    * @param horse the horse to update
    * @return the updated horse
