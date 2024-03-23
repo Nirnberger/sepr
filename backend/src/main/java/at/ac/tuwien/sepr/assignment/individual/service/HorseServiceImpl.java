@@ -10,6 +10,7 @@ import at.ac.tuwien.sepr.assignment.individual.exception.NotFoundException;
 import at.ac.tuwien.sepr.assignment.individual.exception.ValidationException;
 import at.ac.tuwien.sepr.assignment.individual.mapper.HorseMapper;
 import at.ac.tuwien.sepr.assignment.individual.persistence.HorseDao;
+
 import java.lang.invoke.MethodHandles;
 import java.util.Collections;
 import java.util.Map;
@@ -18,6 +19,7 @@ import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -75,10 +77,15 @@ public class HorseServiceImpl implements HorseService {
   public HorseDetailDto createNewHorse(HorseDetailDto horse) throws ConflictException, ValidationException {
     LOG.trace("createHorse({})", horse);
     validator.validateForCreation(horse);
-    //TODO: create new horse
     var newHorse = dao.createNewHorse(horse);
     var breeds = breedMapForSingleHorse(newHorse);
     return mapper.entityToDetailDto(newHorse, breeds);
+  }
+
+  @Override
+  public HorseDetailDto deleteHorseById(long horseId) throws NotFoundException {
+    LOG.trace("deleteHorse({})", horseId);
+    return dao.deleteHorseById(horseId);
   }
 
   private Map<Long, BreedDto> breedMapForSingleHorse(Horse horse) {

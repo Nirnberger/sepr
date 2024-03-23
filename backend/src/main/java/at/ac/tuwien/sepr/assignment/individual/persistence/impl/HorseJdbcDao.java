@@ -8,6 +8,7 @@ import at.ac.tuwien.sepr.assignment.individual.exception.FatalException;
 import at.ac.tuwien.sepr.assignment.individual.exception.NotFoundException;
 import at.ac.tuwien.sepr.assignment.individual.persistence.HorseDao;
 import at.ac.tuwien.sepr.assignment.individual.type.Sex;
+
 import java.lang.invoke.MethodHandles;
 import java.sql.Date;
 import java.sql.PreparedStatement;
@@ -19,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.dao.DuplicateKeyException;
@@ -36,14 +38,14 @@ public class HorseJdbcDao implements HorseDao {
   private static final String TABLE_NAME = "horse";
   private static final String SQL_SELECT_BY_ID = "SELECT * FROM " + TABLE_NAME + " WHERE id = ?";
   private static final String SQL_SELECT_SEARCH = "SELECT  "
-          + "    h.id as \"id\", h.name as \"name\", h.sex as \"sex\", h.date_of_birth as \"date_of_birth\""
-          + "    , h.height as \"height\", h.weight as \"weight\", h.breed_id as \"breed_id\""
-          + " FROM " + TABLE_NAME + " h LEFT OUTER JOIN breed b ON (h.breed_id = b.id)"
-          + " WHERE (:name IS NULL OR UPPER(h.name) LIKE UPPER('%'||:name||'%'))"
-          + "  AND (:sex IS NULL OR :sex = sex)"
-          + "  AND (:bornEarliest IS NULL OR :bornEarliest <= h.date_of_birth)"
-          + "  AND (:bornLatest IS NULL OR :bornLatest >= h.date_of_birth)"
-          + "  AND (:breed IS NULL OR UPPER(b.name) LIKE UPPER('%'||:breed||'%'))";
+      + "    h.id as \"id\", h.name as \"name\", h.sex as \"sex\", h.date_of_birth as \"date_of_birth\""
+      + "    , h.height as \"height\", h.weight as \"weight\", h.breed_id as \"breed_id\""
+      + " FROM " + TABLE_NAME + " h LEFT OUTER JOIN breed b ON (h.breed_id = b.id)"
+      + " WHERE (:name IS NULL OR UPPER(h.name) LIKE UPPER('%'||:name||'%'))"
+      + "  AND (:sex IS NULL OR :sex = sex)"
+      + "  AND (:bornEarliest IS NULL OR :bornEarliest <= h.date_of_birth)"
+      + "  AND (:bornLatest IS NULL OR :bornLatest >= h.date_of_birth)"
+      + "  AND (:breed IS NULL OR UPPER(b.name) LIKE UPPER('%'||:breed||'%'))";
 
   private static final String SQL_LIMIT_CLAUSE = " LIMIT :limit";
 
@@ -57,7 +59,9 @@ public class HorseJdbcDao implements HorseDao {
       + " WHERE id = ?";
 
   private static final String SQL_INSERT = "INSERT INTO " + TABLE_NAME + " (name, sex, date_of_birth, height, weight, breed_id)"
-          + " VALUES (?, ?, ?, ?, ?, ?)";
+      + " VALUES (?, ?, ?, ?, ?, ?)";
+
+  private static final String SQL_DELETE_HORSE = "DELETE FROM " + TABLE_NAME + " WHERE id = ?";
 
   private final JdbcTemplate jdbcTemplate;
   private final NamedParameterJdbcTemplate jdbcNamed;
@@ -112,18 +116,28 @@ public class HorseJdbcDao implements HorseDao {
 
       // Create the Horse object with the generated id
       Horse newHorse = new Horse()
-              .setId(generatedId)
-              .setName(horse.name())
-              .setSex(horse.sex())
-              .setDateOfBirth(horse.dateOfBirth())
-              .setHeight(horse.height())
-              .setWeight(horse.weight())
-              .setBreedId(horse.breed().id());
+          .setId(generatedId)
+          .setName(horse.name())
+          .setSex(horse.sex())
+          .setDateOfBirth(horse.dateOfBirth())
+          .setHeight(horse.height())
+          .setWeight(horse.weight())
+          .setBreedId(horse.breed().id());
 
       return newHorse;
     } catch (DuplicateKeyException e) {
       throw new ConflictException("Horse already exists", new ArrayList<>());
     }
+  }
+
+  @Override
+  public HorseDetailDto deleteHorseById(long id) throws NotFoundException {
+    LOG.trace("delete({})", id);
+    int rowsAffected = jdbcTemplate.update(SQL_DELETE_HORSE, id);
+    if (rowsAffected == 0) {
+      throw new NotFoundException("No horse with ID %d found".formatted(id));
+    }
+    return null;
   }
 
 

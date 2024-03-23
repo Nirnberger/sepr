@@ -51,4 +51,11 @@ public interface HorseService {
    * @param horse data for the new horse to be instantiated
    */
   HorseDetailDto createNewHorse(HorseDetailDto horse) throws ValidationException, ConflictException;
+
+  /**
+   * Deletes a Horse if it exists
+   * @param horseId horse to delete
+   * @return deleted horse
+   */
+  HorseDetailDto deleteHorseById(long horseId) throws NotFoundException;
 }

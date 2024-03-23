@@ -52,4 +52,13 @@ public interface HorseDao {
    * @throws ConflictException if this horse already exists
    */
   Horse createNewHorse(HorseDetailDto horse) throws ConflictException;
+
+  /**
+   * Delete Horse by id
+   *
+   * @param horseId to delete
+   * @return was successful
+   * @throws NotFoundException
+   */
+  HorseDetailDto deleteHorseById(long horseId) throws NotFoundException;
 }
