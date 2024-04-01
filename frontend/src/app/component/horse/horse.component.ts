@@ -1,10 +1,10 @@
-import {Component, OnInit} from '@angular/core';
-import {ToastrService} from 'ngx-toastr';
-import {HorseService} from 'src/app/service/horse.service';
-import {Horse, HorseListDto} from '../../dto/horse';
-import {HorseSearch} from '../../dto/horse';
-import {debounceTime, map, Observable, of, Subject} from 'rxjs';
-import {BreedService} from "../../service/breed.service";
+import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
+import { HorseService } from 'src/app/service/horse.service';
+import { Horse, HorseListDto } from '../../dto/horse';
+import { HorseSearch } from '../../dto/horse';
+import { debounceTime, map, Observable, of, Subject } from 'rxjs';
+import { BreedService } from "../../service/breed.service";
 
 @Component({
   selector: 'app-horse',
@@ -31,7 +31,23 @@ export class HorseComponent implements OnInit {
     this.reloadHorses();
     this.searchChangedObservable
       .pipe(debounceTime(300))
-      .subscribe({next: () => this.reloadHorses()});
+      .subscribe({ next: () => this.reloadHorses() });
+  }
+
+  public delete(horse: Horse): void {
+    let observable: Observable<Horse>;
+    observable = this.service.delete(horse);
+    observable.subscribe({
+      next: data => {
+        this.notification.success(`Horse ${horse.name} successfully deleted.`);
+        this.reloadHorses();
+      },
+      error: error => {
+        console.error('Error deleting horse', error);
+        //this.errorText = error.message;
+        // TODO show an error message to the user. Include and sensibly present the info from the backend!
+      }
+    });
   }
 
   reloadHorses() {

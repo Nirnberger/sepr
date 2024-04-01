@@ -59,7 +59,7 @@ public interface HorseDao {
    *
    * @param horseId to delete
    * @return was successful
-   * @throws NotFoundException
+   * @throws NotFoundException if a horse with the provided id does not exist
    */
   HorseDetailDto deleteHorseById(long horseId) throws NotFoundException;
 }

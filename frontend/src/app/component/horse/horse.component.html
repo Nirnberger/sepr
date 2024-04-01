@@ -125,6 +125,11 @@
         <td>{{horse.breed?.name ?? ""}}</td>
         <td>
           <div class="btn-group">
+             <a class="btn btn-sm responsive-delete-button"
+                (click)="delete(horse)"
+               aria-label="Delete Horse">
+              <i class="bi bi-x-lg"></i>
+            </a>
             <a class="btn btn-sm responsive-info-button"
                aria-label="Show horse details">
               <i class="bi bi-info-lg"></i>

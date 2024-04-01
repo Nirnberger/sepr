@@ -77,4 +77,10 @@ export class HorseService {
     );
   }
 
+  delete(horse: Horse): Observable<Horse> {
+    return this.http.delete<Horse>(
+      `${baseUri}/${horse.id}`,
+    );
+  }
+
 }

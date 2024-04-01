@@ -15,33 +15,70 @@ public class Horse {
   private float weight;
   private Long breedId;
 
+  /**
+   * Getter fo id
+   *
+   * @return id
+   */
   public Long getId() {
     return id;
   }
 
+  /**
+   * Setter for id
+   *
+   * @param id to be set
+   * @return this horse
+   */
   public Horse setId(Long id) {
     this.id = id;
     return this;
   }
 
+  /**
+   * Getter for name
+   * @return name
+   */
   public String getName() {
     return name;
   }
 
+  /**
+   * Setter for name
+   *
+   * @param name to be set
+   * @return this horse
+   */
   public Horse setName(String name) {
     this.name = name;
     return this;
   }
 
+  /**
+   * Getter for sex
+   *
+   * @return this sex
+   */
   public Sex getSex() {
     return sex;
   }
 
+  /**
+   * Setter for set
+   *
+   * @param sex to be set
+   * @return this horse
+   */
   public Horse setSex(Sex sex) {
     this.sex = sex;
     return this;
   }
 
+  /**
+   * Getter for DateOfBirth
+   *
+   * @return DateOfBirth
+   */
   public LocalDate getDateOfBirth() {
     return dateOfBirth;
   }
@@ -73,6 +110,11 @@ public class Horse {
     return breedId;
   }
 
+  /**
+   * Seter for BreedId
+   *
+   * @breedId of horse
+   */
   public Horse setBreedId(Long breedId) {
     this.breedId = breedId;
     return this;

@@ -95,7 +95,6 @@ export class HorseCreateEditComponent implements OnInit {
         return 'Create';
       case HorseCreateEditMode.edit:
         return 'Update';
-      break;
       default:
         return '?';
     }
@@ -167,37 +166,52 @@ export class HorseCreateEditComponent implements OnInit {
     return breed?.name ?? '';
   }
 
-  breedSuggestions = (input: string) => (input === '')
-    ? of([])
-    :  this.breedService.breedsByName(input, 5);
+  breedSuggestions = (input: string) => (input === '') ? of([]) :  this.breedService.breedsByName(input, 5);
 
-    public onSubmit(form: NgForm): void {
-      console.log('is form valid?', form.valid, this.horse);
-      if (form.valid) {
-        let observable: Observable<Horse>;
-        switch (this.mode) {
-          case HorseCreateEditMode.create:
-            observable = this.service.create(this.horse);
-          break;
-          case HorseCreateEditMode.edit:
-            observable = this.service.update(this.horse);
-          break;
-          default:
-            console.error('Unknown HorseCreateEditMode', this.mode);
-          return;
-        }
-        observable.subscribe({
-          next: data => {
-            this.notification.success(`Horse ${this.horse.name} successfully ${this.modeActionFinished}.`);
-            this.router.navigate(['/horses']);
-          },
-          error: error => {
-            console.error('Error creating horse', error);
-            this.errorText = error.message;
-            // TODO show an error message to the user. Include and sensibly present the info from the backend!
-          }
-        });
+  public onSubmit(form: NgForm): void {
+    console.log('is form valid?', form.valid, this.horse);
+    if (form.valid) {
+      let observable: Observable<Horse>;
+      switch (this.mode) {
+        case HorseCreateEditMode.create:
+          observable = this.service.create(this.horse);
+        break;
+        case HorseCreateEditMode.edit:
+          observable = this.service.update(this.horse);
+        break;
+        default:
+          console.error('Unknown HorseCreateEditMode', this.mode);
+        return;
       }
+      observable.subscribe({
+        next: data => {
+          this.notification.success(`Horse ${this.horse.name} successfully ${this.modeActionFinished}.`);
+          this.router.navigate(['/horses']);
+        },
+        error: error => {
+          console.error('Error creating horse', error);
+          this.errorText = error.message;
+          // TODO show an error message to the user. Include and sensibly present the info from the backend!
+        }
+      });
     }
+  }
+
+  public onDelete(): void {
+    console.log("trying to delete Horse with id: " + this.horse.id);
+    let observable: Observable<Horse>;
+    observable = this.service.delete(this.horse);
+    observable.subscribe({
+      next: data => {
+        this.notification.success(`Horse ${this.horse.name} successfully deleted.`);
+        this.router.navigate(['/horses']);
+      },
+      error: error => {
+        console.error('Error creating horse', error);
+        this.errorText = error.message;
+        // TODO show an error message to the user. Include and sensibly present the info from the backend!
+      }
+    });
+  }
 
 }
